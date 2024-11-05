@@ -1,0 +1,21 @@
+{% extends "login_app/base.html" %}
+
+{% block body_block %}
+
+<h2 class="mt-4">please Login here:- </h2>
+
+<form action="{% url 'login:user_login' %}" method="POST">
+<label for="username">Username</label>
+<input class="form-control" type="text" name="username" placeholder="enter your name" required >
+
+<label for="password">password</label>
+<input class="form-control" type="password" name="password" placeholder="enter password" required>
+{% csrf_token %}
+<br>
+<input type="submit" name="submit" value="login">
+
+
+</form>
+
+
+{% endblock  %}
