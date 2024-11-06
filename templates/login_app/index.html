@@ -2,6 +2,15 @@
 
  {% block body_block %}
  
- <h1>Hello</h1>
- 
+{% if user.is_authenticated %}
+<p class='mt-4'> hi ,{{ user_basic_info.username }}</p>
+<p class='mb-4'>your mail:- {{ user_basic_info.email }}</p>
+
+<p><a href="{{ user_more_info.facebook_id }}"></a></p>
+
+<img src="/media/{{ user_more_info.profile_picture}}" alt="">
+
+{%else%}
+<div class='alert alert-danger'> please login first </div>
+ {% endif %}
  {% endblock  %}
